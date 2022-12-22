@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">NewPhotoPickerAndroid13</string>
+    <string name="image_picker_provider_authority_suffix">.imagepicker.provider</string>
+</resources>

@@ -1,0 +1,78 @@
+[
+    {
+        "merged": "com.android.parth.app-merged_res-55:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.android.parth.app-main-57:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.android.parth.app-merged_res-55:/mipmap-anydpi-v33_ic_launcher.xml.flat",
+        "source": "com.android.parth.app-main-57:/mipmap-anydpi-v33/ic_launcher.xml"
+    },
+    {
+        "merged": "com.android.parth.app-merged_res-55:/xml_data_extraction_rules.xml.flat",
+        "source": "com.android.parth.app-main-57:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.android.parth.app-merged_res-55:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.android.parth.app-main-57:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.android.parth.app-merged_res-55:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.android.parth.app-main-57:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.android.parth.app-merged_res-55:/drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "com.android.parth.app-main-57:/drawable-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.android.parth.app-merged_res-55:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.android.parth.app-main-57:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.android.parth.app-merged_res-55:/xml_backup_rules.xml.flat",
+        "source": "com.android.parth.app-main-57:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.android.parth.app-merged_res-55:/xml_provider_paths.xml.flat",
+        "source": "com.android.parth.app-main-57:/xml/provider_paths.xml"
+    },
+    {
+        "merged": "com.android.parth.app-merged_res-55:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.android.parth.app-main-57:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.android.parth.app-merged_res-55:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.android.parth.app-main-57:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.android.parth.app-merged_res-55:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.android.parth.app-main-57:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.android.parth.app-merged_res-55:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.android.parth.app-main-57:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.android.parth.app-merged_res-55:/layout_activity_new_photo_picker.xml.flat",
+        "source": "com.android.parth.app-main-57:/layout/activity_new_photo_picker.xml"
+    },
+    {
+        "merged": "com.android.parth.app-merged_res-55:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.android.parth.app-main-57:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.android.parth.app-merged_res-55:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.android.parth.app-main-57:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.android.parth.app-merged_res-55:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.android.parth.app-main-57:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.android.parth.app-merged_res-55:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.android.parth.app-main-57:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.android.parth.app-merged_res-55:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.android.parth.app-main-57:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    }
+]

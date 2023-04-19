@@ -1,5 +1,11 @@
 # PhotoPicker
 
+### According to the new Android 14 (UpsideDownCake Preview) version we need to update the permissions but we are using photo picker that's why we don't have to worry about the new Android 14 changes.This code is working in Android 14 preview version.
+
+Here is the link of the official document of Android. 
+
+https://developer.android.com/about/versions/14/behavior-changes-all#partial-photo-video-access
+
 Here is the Demo for the PhotoPicker in All Android Versions
 
 I have tested with multiple scenarios , here is the scenario list

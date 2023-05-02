@@ -17,8 +17,8 @@ I have tested with multiple scenarios , here is the scenario list
 
 <!--![LocationPermission](art/ss_location1.png)-->
 
-<p align="center">
+<!--<p align="center">
   <img src="art/ss_photopicker1.png" width="350">
   <img src="art/ss_photopicker2.png" width="350">
   <img src="art/ss_photopicker3.png" width="350">
-</p>
+</p>-->

@@ -3,9 +3,11 @@ package com.android.parth
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.pdf.PdfRenderer
 import android.net.Uri
 import android.os.Environment
 import android.os.StatFs
+import android.util.Log
 import androidx.core.content.FileProvider
 import androidx.documentfile.provider.DocumentFile
 import java.io.File
@@ -25,16 +27,81 @@ object FileUtil {
             val ext = extension ?: ".jpg"
             val imageFileName = "IMG_${getTimestamp()}$ext"
 
+            val storageDir = dir ?: getCameraDirectory(context)
+            if (!storageDir.exists()) storageDir.mkdirs()
+            val file = File(storageDir, imageFileName)
+            file.createNewFile()
+
+            return file
+        } catch (ex: IOException) {
+            ex.printStackTrace()
+            return null
+        }
+    }
+
+    fun getPdfFile(context: Context, dir: File? = null, extension: String? = null): File? {
+        try {
+
+            val ext = extension ?: ".pdf"
+            val imageFileName = "PDF_${getTimestamp()}$ext"
 
             val storageDir = dir ?: getCameraDirectory(context)
-
-
             if (!storageDir.exists()) storageDir.mkdirs()
-
-
             val file = File(storageDir, imageFileName)
+            file.createNewFile()
 
+            return file
+        } catch (ex: IOException) {
+            ex.printStackTrace()
+            return null
+        }
+    }
 
+    fun getDocumentFile(context: Context, dir: File? = null, extension: String? = null): File? {
+        try {
+
+            val ext = extension ?: ".docx"
+            val imageFileName = "DOC_${getTimestamp()}$ext"
+
+            val storageDir = dir ?: getCameraDirectory(context)
+            if (!storageDir.exists()) storageDir.mkdirs()
+            val file = File(storageDir, imageFileName)
+            file.createNewFile()
+
+            return file
+        } catch (ex: IOException) {
+            ex.printStackTrace()
+            return null
+        }
+    }
+
+    fun getAudioFile(context: Context, dir: File? = null, extension: String? = null): File? {
+        try {
+
+            val ext = extension ?: ".mp3"
+            val imageFileName = "MP3_${getTimestamp()}$ext"
+
+            val storageDir = dir ?: getCameraDirectory(context)
+            if (!storageDir.exists()) storageDir.mkdirs()
+            val file = File(storageDir, imageFileName)
+            file.createNewFile()
+
+            return file
+        } catch (ex: IOException) {
+            ex.printStackTrace()
+            return null
+        }
+    }
+
+    fun getVideoFile(context: Context, dir: File? = null, extension: String? = null): File? {
+        try {
+
+            val ext = extension ?: ".mp4"
+            val imageFileName = "MP4_${getTimestamp()}$ext"
+
+            val storageDir = dir ?: getCameraDirectory(context)
+            if (!storageDir.exists()) storageDir.mkdirs()
+            val file = File(storageDir, imageFileName)
             file.createNewFile()
 
             return file
@@ -52,14 +119,8 @@ object FileUtil {
 
 
             val storageDir = dir ?: getCameraDirectory(context)
-
-
             if (!storageDir.exists()) storageDir.mkdirs()
-
-
             val file = File(storageDir, imageFileName)
-
-
             file.createNewFile()
 
             val authority =
@@ -116,6 +177,7 @@ object FileUtil {
 
 
     fun getImageSize(context: Context, uri: Uri): Long {
+
         return getDocumentFile(context, uri)?.length() ?: 0
     }
 
@@ -167,4 +229,59 @@ object FileUtil {
     private fun isFileUri(uri: Uri): Boolean {
         return "file".equals(uri.scheme, ignoreCase = true)
     }
+
+    fun getThumbnail(file: File?,uri: Uri,context: Context): Bitmap? {
+
+        with(context) {
+
+            Log.e("file?.extension",""+file?.extension)
+            Log.e("file.path",""+file?.path)
+            when (file?.extension) {
+
+                "pdf" -> return getThumbnailPDF(uri, context)
+                "doc" -> return BitmapFactory.decodeResource(resources,R.drawable.doc)
+                "docx" -> return BitmapFactory.decodeResource(resources,R.drawable.doc)
+                "mp3" -> return BitmapFactory.decodeResource(resources,R.drawable.audio)
+                "eac3" -> return BitmapFactory.decodeResource(resources,R.drawable.audio)
+                "wav" -> return BitmapFactory.decodeResource(resources,R.drawable.audio)
+                "mp4" -> return BitmapFactory.decodeResource(resources,R.drawable.video)
+                "mov" -> return BitmapFactory.decodeResource(resources,R.drawable.video)
+                "avi" -> return BitmapFactory.decodeResource(resources,R.drawable.video)
+                "mkv" -> return BitmapFactory.decodeResource(resources,R.drawable.video)
+                "webm" -> return BitmapFactory.decodeResource(resources,R.drawable.video)
+
+
+                else -> {
+                    return null
+                }
+            }
+
+
+        }
+
+
+    }
+
+    private fun getThumbnailPDF(uri: Uri, context: Context): Bitmap {
+        with(context) {
+            var bitmap: Bitmap? = null
+            contentResolver.openFileDescriptor(uri, "r")?.use { parcelFileDescriptor ->
+                val pdfRenderer = PdfRenderer(parcelFileDescriptor).openPage(0)
+                bitmap = Bitmap.createBitmap(
+                    pdfRenderer.width,
+                    pdfRenderer.height,
+                    Bitmap.Config.ARGB_8888
+                )
+                pdfRenderer.render(bitmap!!, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY)
+                pdfRenderer.close()
+
+            }
+            return bitmap!!
+        }
+    }
+
+    fun getThumbnailImage(absolutePath: String, context: Context): Bitmap{
+        return BitmapFactory.decodeFile(absolutePath)
+    }
+
 }

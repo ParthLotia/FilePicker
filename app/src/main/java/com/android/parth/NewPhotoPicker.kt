@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -24,16 +25,16 @@ class NewPhotoPicker : AppCompatActivity() {
 
         btn_upload_pick.setOnClickListener {
 
-            val mimeType = "image/*"
+            val mimeType = "*/*"
 
-            /*Single Image Picker*/
+            /*Single Document Picker*/
+            // Image , Video , PDF , DOC , DOCX
             pickMedia.launch(
-                PickVisualMediaRequest(
-                    ActivityResultContracts.PickVisualMedia.SingleMimeType(
-                        mimeType
-                    )
-                )
+                arrayOf(mimeType)
             )
+
+            /* Multiple Document Picker*/
+            //pickMultipleDocument.launch(arrayOf(mimeType))
 
             /*Multiple Image And Video*/
             //pickMultipleMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageAndVideo))
@@ -44,20 +45,60 @@ class NewPhotoPicker : AppCompatActivity() {
             /*Multiple Video*/
             //pickMultipleMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.VideoOnly))
 
+
         }
 
 
     }
 
-    val pickMedia = registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
+    private val pickMedia = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
         if (uri != null) {
             Log.e("PhotoPicker", "Selected URI: $uri")
-            val file = File(FileUriUtils.getRealPath(this, uri))
-            Log.e("file", "" + file.exists())
-            Log.e("fileLength", "" + file.length())
-            Log.e("fileName", "" + file.name)
-            Log.e("filePath", "" + file.path)
-            img_pick.setImageURI(uri)
+
+            val file = FileUriUtils.getRealPath(this, uri)?.let { File(it) }
+            Log.e("file", "" + file?.exists())
+            Log.e("fileLength", "" + file?.length())
+            Log.e("fileName", "" + file?.name)
+            Log.e("filePath", "" + file?.path)
+            Log.e("file.extension", "" + file?.extension)
+
+            if (file != null) {
+
+                if ((file.extension.equals("pdf", true)) ||
+                    (file.extension.equals("doc", true)) ||
+                    (file.extension.equals("docx", true)) ||
+                    (file.extension.equals("mp4", true)) ||
+                    (file.extension.equals("mp3", true)) ||
+                    (file.extension.equals("eac3", true)) ||
+                    (file.extension.equals("wav", true)) ||
+                    (file.extension.equals("mov", true)) ||
+                    (file.extension.equals("avi", true)) ||
+                    (file.extension.equals("mkv", true)) ||
+                    (file.extension.equals("webm", true))
+                ) {
+
+                    img_pick.setImageBitmap(
+                        FileUtil.getThumbnail(
+                            file,
+                            uri,
+                            context = applicationContext
+                        )
+                    )
+
+                } else if ((file.extension.equals("jpg", true)) ||
+                    (file.extension.equals("jpeg", true)) ||
+                    (file.extension.equals("png", true))
+                ) {
+
+                    img_pick.setImageURI(uri)
+
+                }
+            } else {
+                img_pick.setImageResource(R.drawable.img_not_supported)
+                Toast.makeText(this, "This file format is not supported", Toast.LENGTH_SHORT).show()
+            }
+
+
         } else {
             Log.d("PhotoPicker", "No media selected")
         }
@@ -70,10 +111,31 @@ class NewPhotoPicker : AppCompatActivity() {
     val pickMultipleMedia =
         registerForActivityResult(ActivityResultContracts.PickMultipleVisualMedia(5)) { uris ->
             if (uris.isNotEmpty()) {
-                Log.d("PhotoPicker", "Number of items selected: ${uris.size}")
-                Log.d("PhotoPicker", "Number of items selected: ${uris}")
+                if (uris.size > 5) {
+                    Toast.makeText(this, "Please Select Item Upto 5", Toast.LENGTH_SHORT).show()
+                } else {
+                    Log.d("PhotoPicker", "Number of items selected: ${uris.size}")
+                    Log.d("PhotoPicker", "Number of items selected: ${uris}")
+                }
             } else {
                 Log.d("PhotoPicker", "No media selected")
             }
+        }
+
+    private val pickMultipleDocument =
+        registerForActivityResult(ActivityResultContracts.OpenMultipleDocuments()) {uris ->
+            if (uris.isNotEmpty()){
+
+                for (i in uris.indices){
+                    val file = FileUriUtils.getRealPath(this, uris[i])?.let { File(it) }
+                    Log.e("file", "" + file?.exists())
+                    Log.e("fileLength", "" + file?.length())
+                    Log.e("fileName", "" + file?.name)
+                    Log.e("filePath", "" + file?.path)
+                    Log.e("file.extension", "" + file?.extension)
+                }
+
+            }
+
         }
 }

@@ -1,5 +1,6 @@
 package com.android.parth
 
+import android.annotation.SuppressLint
 import android.content.ContentUris
 import android.content.Context
 import android.database.Cursor
@@ -9,9 +10,9 @@ import android.os.Build
 import android.os.Environment
 import android.provider.DocumentsContract
 import android.provider.MediaStore
+import android.provider.OpenableColumns
 import android.util.Log
 import java.io.*
-
 
 
 object FileUriUtils {
@@ -158,16 +159,85 @@ object FileUriUtils {
         var inputStream: InputStream? = null
         var outputStream: OutputStream? = null
         var success = false
+        var extensions: String? = null
         try {
-            val extension = getImageExtension(uri)
-            inputStream = context.contentResolver.openInputStream(uri)
-            file = FileUtil.getImageFile(context, context.cacheDir, extension)
-            if (file == null) return null
-            outputStream = FileOutputStream(file)
-            if (inputStream != null) {
-                inputStream.copyTo(outputStream, bufferSize = 4 * 1024)
-                success = true
+
+            val imagePath = uri.path
+            if (imagePath != null && imagePath.lastIndexOf(".") != -1) {
+                extensions = imagePath.substring(imagePath.lastIndexOf(".") + 1)
+                extensions = ".$extensions"
+            }else{
+                var pathString = getRealPathFromURI(context,uri)
+                extensions = pathString?.substring(pathString.lastIndexOf(".") + 1)
+                extensions = ".$extensions"
+                Log.e("pathString", "$pathString")
+
             }
+
+
+            Log.e("extensions", "$extensions")
+
+
+            if (extensions.equals(".pdf", true)) {
+
+                inputStream = context.contentResolver.openInputStream(uri)
+                file = FileUtil.getPdfFile(context, context.cacheDir, extensions)
+                if (file == null) return null
+                outputStream = FileOutputStream(file)
+                if (inputStream != null) {
+                    inputStream.copyTo(outputStream, bufferSize = 4 * 1024)
+                    success = true
+                }
+
+
+            } else if ((extensions.equals(".doc", true)) || (extensions.equals(".docx", true))) {
+
+                inputStream = context.contentResolver.openInputStream(uri)
+                file = FileUtil.getDocumentFile(context, context.cacheDir, extensions)
+                if (file == null) return null
+                outputStream = FileOutputStream(file)
+                if (inputStream != null) {
+                    inputStream.copyTo(outputStream, bufferSize = 4 * 1024)
+                    success = true
+                }
+
+
+            } else if ((extensions.equals(".jpg", true)) || (extensions.equals(
+                    ".jpeg",
+                    true
+                )) || (extensions.equals(".png", true))
+            ) {
+                val extension = getImageExtension(uri)
+                inputStream = context.contentResolver.openInputStream(uri)
+                file = FileUtil.getImageFile(context, context.cacheDir, extension)
+                if (file == null) return null
+                outputStream = FileOutputStream(file)
+                if (inputStream != null) {
+                    inputStream.copyTo(outputStream, bufferSize = 4 * 1024)
+                    success = true
+                }
+            }else if (extensions.equals(".mp3")){
+
+                inputStream = context.contentResolver.openInputStream(uri)
+                file = FileUtil.getAudioFile(context, context.cacheDir, extensions)
+                if (file == null) return null
+                outputStream = FileOutputStream(file)
+                if (inputStream != null) {
+                    inputStream.copyTo(outputStream, bufferSize = 4 * 1024)
+                    success = true
+                }
+            }else if (extensions.equals(".mp4")){
+                inputStream = context.contentResolver.openInputStream(uri)
+                file = FileUtil.getVideoFile(context, context.cacheDir, extensions)
+                if (file == null) return null
+                outputStream = FileOutputStream(file)
+                if (inputStream != null) {
+                    inputStream.copyTo(outputStream, bufferSize = 4 * 1024)
+                    success = true
+                }
+            }
+
+
         } catch (ignored: IOException) {
         } finally {
             try {
@@ -234,4 +304,92 @@ object FileUriUtils {
     private fun isGooglePhotosUri(uri: Uri): Boolean {
         return "com.google.android.apps.photos.content" == uri.authority
     }
+    fun getRealPathFromURI(context: Context?, contentUri: Uri?): String? {
+        Log.e("contentUri",""+contentUri)
+
+
+        var splitUri = contentUri.toString().substring(contentUri.toString().lastIndexOf("/") + 1)
+        Log.e("splitUri ",""+splitUri)
+
+
+
+
+//        val out: OutputStream
+        val file = File(getFileName(context,contentUri)!!)
+        if (file != null){
+            Log.e("filePath","123:->>"+file.path)
+            return file.path
+        }
+       /* try {
+            if (file.createNewFile()) {
+                val iStream = if (context != null) context.contentResolver.openInputStream(
+                    contentUri!!
+                ) else context?.contentResolver?.openInputStream(contentUri!!)
+                val inputData = getBytes(iStream)
+                out = FileOutputStream(file)
+                out.write(inputData)
+                out.close()
+                return file.absolutePath
+            }
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }*/
+        return null
+    }
+
+    @Throws(IOException::class)
+    private fun getBytes(inputStream: InputStream?): ByteArray {
+        val byteBuffer = ByteArrayOutputStream()
+        val bufferSize = 1024
+        val buffer = ByteArray(bufferSize)
+        var len = 0
+        while (inputStream!!.read(buffer).also { len = it } != -1) {
+            byteBuffer.write(buffer, 0, len)
+        }
+        return byteBuffer.toByteArray()
+    }
+
+   /* private fun getFilename(context: Context?, splitUri: String): String? {
+        val mediaStorageDir = File(context!!.getExternalFilesDir(""), "NewPhotoPickerAndroid13")
+        // Create the storage directory if it does not exist
+        if (!mediaStorageDir.exists()) {
+            mediaStorageDir.mkdirs()
+        }
+        Log.e("mediaStorageDir",""+mediaStorageDir.path)
+        var mImageName : String = ""
+        if (splitUri.contains("image")){
+
+            mImageName = "IMG_" + System.currentTimeMillis().toString() + ".png"
+        }else if (splitUri.contains("video")){
+            mImageName = "VIDEO_" + System.currentTimeMillis().toString() + ".mp4"
+        }else if (splitUri.contains("audio")){
+            mImageName = "AUD_" + System.currentTimeMillis().toString() + ".mp3"
+        }else if (splitUri.contains("document")){
+            mImageName = "AUD_" + System.currentTimeMillis().toString() + ".mp3"
+        }
+        return mediaStorageDir.absolutePath + "/" + mImageName
+    }*/
+   @SuppressLint("Range")
+   open fun getFileName(context: Context?, uri: Uri?): String? {
+       var result: String? = null
+       if (uri!!.scheme == "content") {
+           val cursor: Cursor = context!!.contentResolver.query(uri, null, null, null, null)!!
+           try {
+               if (cursor != null && cursor.moveToFirst()) {
+                   result = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME))
+               }
+           } finally {
+               cursor!!.close()
+           }
+       }
+       if (result == null) {
+           result = uri.path
+           val cut = result!!.lastIndexOf('/')
+           if (cut != -1) {
+               result = result!!.substring(cut + 1)
+           }
+       }
+       Log.e("result",""+result)
+       return result
+   }
 }

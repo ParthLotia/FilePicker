@@ -13,4 +13,7 @@
     <external-path
         name="external_files"
         path="." />
+    <cache-path
+        name="cache"
+        path="/" />`
 </paths>

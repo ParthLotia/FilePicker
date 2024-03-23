@@ -4,7 +4,7 @@ buildscript {
     ext.compose_ui_version = '1.4.0'
     repositories {
         google()
-        jcenter()
+        mavenCentral()
         maven { url "https://www.jitpack.io" }
         // for com.github.chrisbanes:PhotoView
     }

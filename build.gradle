@@ -3,6 +3,9 @@ buildscript {
     ext.gradle_version = '3.5.0'
     ext.compose_ui_version = '1.4.0'
     repositories {
+        maven {
+            url 'https://dl.google.com/dl/android/maven2'
+        }
         google()
         mavenCentral()
         maven { url "https://www.jitpack.io" }

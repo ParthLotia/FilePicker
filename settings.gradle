@@ -16,5 +16,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "NewPhotoPickerAndroid13"
 include ':app'
-
 include ':photoPicker'

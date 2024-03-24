@@ -12,6 +12,25 @@ I have tested with multiple scenarios , here is the scenario list
 4. Multiple Photo Selection will work from Android 11 to Android 13.
 5. Multiple Photo Selection below Android 11 we have to use clipdata the old way.
 
+Here how to use library in your project follow below steps .
+
+1. In your gradle(app) add below line
+```
+    dependencies{
+         implementation 'com.github.ParthLotia:FilePicker:Tag'
+    }
+```   
+
+2. In your project level gradle add below line
+```
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://www.jitpack.io" }
+    }
+```
+
+
 <!--![LocationPermission](art/ss_location1.png)-->
 
 <p align="center">

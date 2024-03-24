@@ -22,6 +22,7 @@ Here how to use library in your project follow below steps .
          implementation 'com.github.ParthLotia:FilePicker:Tag'
     }
 ```   
+Replace your Tag with current version 1.0.7 .
 
 2. In your project level gradle add below line
 ```

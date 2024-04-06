@@ -9,11 +9,11 @@
 9        android:targetSdkVersion="34" />
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
-11-->E:\github\FilePicker-master\app\src\main\AndroidManifest.xml:6:5-67
-11-->E:\github\FilePicker-master\app\src\main\AndroidManifest.xml:6:22-64
+11-->E:\github\PhotoPicker\app\src\main\AndroidManifest.xml:6:5-67
+11-->E:\github\PhotoPicker\app\src\main\AndroidManifest.xml:6:22-64
 12    <uses-permission android:name="android.permission.CAMERA" />
-12-->E:\github\FilePicker-master\app\src\main\AndroidManifest.xml:7:5-9:71
-12-->E:\github\FilePicker-master\app\src\main\AndroidManifest.xml:8:9-49
+12-->E:\github\PhotoPicker\app\src\main\AndroidManifest.xml:7:5-9:71
+12-->E:\github\PhotoPicker\app\src\main\AndroidManifest.xml:8:9-49
 13
 14    <permission
 14-->[androidx.core:core:1.12.0] C:\Users\hp\.gradle\caches\transforms-3\05e8426a9c8cc62dccf1fb0d75ff4441\transformed\core-1.12.0\AndroidManifest.xml:22:5-24:47
@@ -27,74 +27,74 @@
 18-->[androidx.core:core:1.12.0] C:\Users\hp\.gradle\caches\transforms-3\05e8426a9c8cc62dccf1fb0d75ff4441\transformed\core-1.12.0\AndroidManifest.xml:26:22-94
 19
 20    <application
-20-->E:\github\FilePicker-master\app\src\main\AndroidManifest.xml:11:5-48:19
+20-->E:\github\PhotoPicker\app\src\main\AndroidManifest.xml:11:5-48:19
 21        android:allowBackup="true"
-21-->E:\github\FilePicker-master\app\src\main\AndroidManifest.xml:12:9-35
+21-->E:\github\PhotoPicker\app\src\main\AndroidManifest.xml:12:9-35
 22        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 22-->[androidx.core:core:1.12.0] C:\Users\hp\.gradle\caches\transforms-3\05e8426a9c8cc62dccf1fb0d75ff4441\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
 23        android:dataExtractionRules="@xml/data_extraction_rules"
-23-->E:\github\FilePicker-master\app\src\main\AndroidManifest.xml:13:9-65
+23-->E:\github\PhotoPicker\app\src\main\AndroidManifest.xml:13:9-65
 24        android:debuggable="true"
 25        android:extractNativeLibs="false"
 26        android:fullBackupContent="@xml/backup_rules"
-26-->E:\github\FilePicker-master\app\src\main\AndroidManifest.xml:14:9-54
+26-->E:\github\PhotoPicker\app\src\main\AndroidManifest.xml:14:9-54
 27        android:icon="@mipmap/ic_launcher"
-27-->E:\github\FilePicker-master\app\src\main\AndroidManifest.xml:15:9-43
+27-->E:\github\PhotoPicker\app\src\main\AndroidManifest.xml:15:9-43
 28        android:label="@string/app_name"
-28-->E:\github\FilePicker-master\app\src\main\AndroidManifest.xml:16:9-41
+28-->E:\github\PhotoPicker\app\src\main\AndroidManifest.xml:16:9-41
 29        android:requestLegacyExternalStorage="true"
-29-->E:\github\FilePicker-master\app\src\main\AndroidManifest.xml:17:9-52
+29-->E:\github\PhotoPicker\app\src\main\AndroidManifest.xml:17:9-52
 30        android:supportsRtl="true"
-30-->E:\github\FilePicker-master\app\src\main\AndroidManifest.xml:18:9-35
+30-->E:\github\PhotoPicker\app\src\main\AndroidManifest.xml:18:9-35
 31        android:testOnly="true"
 32        android:theme="@style/Theme.NewPhotoPickerAndroid13" >
-32-->E:\github\FilePicker-master\app\src\main\AndroidManifest.xml:19:9-61
+32-->E:\github\PhotoPicker\app\src\main\AndroidManifest.xml:19:9-61
 33        <activity
-33-->E:\github\FilePicker-master\app\src\main\AndroidManifest.xml:21:9-31:20
+33-->E:\github\PhotoPicker\app\src\main\AndroidManifest.xml:21:9-31:20
 34            android:name="com.android.parth.FilePickerActivity"
-34-->E:\github\FilePicker-master\app\src\main\AndroidManifest.xml:22:13-47
+34-->E:\github\PhotoPicker\app\src\main\AndroidManifest.xml:22:13-47
 35            android:exported="true"
-35-->E:\github\FilePicker-master\app\src\main\AndroidManifest.xml:23:13-36
+35-->E:\github\PhotoPicker\app\src\main\AndroidManifest.xml:23:13-36
 36            android:label="@string/title_activity_file_picker"
-36-->E:\github\FilePicker-master\app\src\main\AndroidManifest.xml:24:13-63
+36-->E:\github\PhotoPicker\app\src\main\AndroidManifest.xml:24:13-63
 37            android:theme="@style/Theme.NewPhotoPickerAndroid13" >
-37-->E:\github\FilePicker-master\app\src\main\AndroidManifest.xml:25:13-65
+37-->E:\github\PhotoPicker\app\src\main\AndroidManifest.xml:25:13-65
 38            <intent-filter>
-38-->E:\github\FilePicker-master\app\src\main\AndroidManifest.xml:26:13-30:29
+38-->E:\github\PhotoPicker\app\src\main\AndroidManifest.xml:26:13-30:29
 39                <action android:name="android.intent.action.MAIN" />
-39-->E:\github\FilePicker-master\app\src\main\AndroidManifest.xml:27:17-69
-39-->E:\github\FilePicker-master\app\src\main\AndroidManifest.xml:27:25-66
+39-->E:\github\PhotoPicker\app\src\main\AndroidManifest.xml:27:17-69
+39-->E:\github\PhotoPicker\app\src\main\AndroidManifest.xml:27:25-66
 40
 41                <category android:name="android.intent.category.LAUNCHER" />
-41-->E:\github\FilePicker-master\app\src\main\AndroidManifest.xml:29:17-77
-41-->E:\github\FilePicker-master\app\src\main\AndroidManifest.xml:29:27-74
+41-->E:\github\PhotoPicker\app\src\main\AndroidManifest.xml:29:17-77
+41-->E:\github\PhotoPicker\app\src\main\AndroidManifest.xml:29:27-74
 42            </intent-filter>
 43        </activity>
 44        <activity
-44-->E:\github\FilePicker-master\app\src\main\AndroidManifest.xml:32:9-37:20
+44-->E:\github\PhotoPicker\app\src\main\AndroidManifest.xml:32:9-37:20
 45            android:name="com.android.parth.NewPhotoPicker"
-45-->E:\github\FilePicker-master\app\src\main\AndroidManifest.xml:33:13-43
+45-->E:\github\PhotoPicker\app\src\main\AndroidManifest.xml:33:13-43
 46            android:exported="true"
-46-->E:\github\FilePicker-master\app\src\main\AndroidManifest.xml:34:13-36
+46-->E:\github\PhotoPicker\app\src\main\AndroidManifest.xml:34:13-36
 47            android:theme="@style/Theme.Android1213PhotoPicker" >
-47-->E:\github\FilePicker-master\app\src\main\AndroidManifest.xml:35:13-64
+47-->E:\github\PhotoPicker\app\src\main\AndroidManifest.xml:35:13-64
 48        </activity>
 49
 50        <provider
 51            android:name="androidx.core.content.FileProvider"
-51-->E:\github\FilePicker-master\app\src\main\AndroidManifest.xml:40:13-62
+51-->E:\github\PhotoPicker\app\src\main\AndroidManifest.xml:40:13-62
 52            android:authorities="com.android.parth.fileProvider"
-52-->E:\github\FilePicker-master\app\src\main\AndroidManifest.xml:41:13-64
+52-->E:\github\PhotoPicker\app\src\main\AndroidManifest.xml:41:13-64
 53            android:exported="false"
-53-->E:\github\FilePicker-master\app\src\main\AndroidManifest.xml:42:13-37
+53-->E:\github\PhotoPicker\app\src\main\AndroidManifest.xml:42:13-37
 54            android:grantUriPermissions="true" >
-54-->E:\github\FilePicker-master\app\src\main\AndroidManifest.xml:43:13-47
+54-->E:\github\PhotoPicker\app\src\main\AndroidManifest.xml:43:13-47
 55            <meta-data
-55-->E:\github\FilePicker-master\app\src\main\AndroidManifest.xml:44:13-46:58
+55-->E:\github\PhotoPicker\app\src\main\AndroidManifest.xml:44:13-46:58
 56                android:name="android.support.FILE_PROVIDER_PATHS"
-56-->E:\github\FilePicker-master\app\src\main\AndroidManifest.xml:45:17-67
+56-->E:\github\PhotoPicker\app\src\main\AndroidManifest.xml:45:17-67
 57                android:resource="@xml/provider_paths" />
-57-->E:\github\FilePicker-master\app\src\main\AndroidManifest.xml:46:17-55
+57-->E:\github\PhotoPicker\app\src\main\AndroidManifest.xml:46:17-55
 58        </provider> <!-- suppress AndroidDomInspection -->
 59        <activity
 59-->[androidx.compose.ui:ui-test-manifest:1.6.2] C:\Users\hp\.gradle\caches\transforms-3\dbed9b5fb2539154a5e57fd6363c516d\transformed\ui-test-manifest-1.6.2\AndroidManifest.xml:23:9-25:39

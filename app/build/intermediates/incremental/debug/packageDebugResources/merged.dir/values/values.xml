@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <string name="app_name">NewPhotoPickerAndroid13</string>
     <string name="image_picker_provider_authority_suffix">.imagepicker.provider</string>
+    <string name="title_activity_file_picker">FilePickerActivity</string>
     <string name="title_activity_main">MainActivity</string>
     <style name="Theme.Android1213PhotoPicker" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         

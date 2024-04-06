@@ -4,9 +4,9 @@
     package="com.android.parth">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA"
+    <uses-permission
+        android:name="android.permission.CAMERA"
         tools:ignore="PermissionImpliesUnsupportedChromeOsHardware" />
-
 
     <application
         android:allowBackup="true"
@@ -19,14 +19,21 @@
         android:theme="@style/Theme.NewPhotoPickerAndroid13"
         tools:targetApi="31">
         <activity
-            android:name=".NewPhotoPicker"
+            android:name=".FilePickerActivity"
             android:exported="true"
-            android:theme="@style/Theme.Android1213PhotoPicker">
+            android:label="@string/title_activity_file_picker"
+            android:theme="@style/Theme.NewPhotoPickerAndroid13">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".NewPhotoPicker"
+            android:exported="true"
+            android:theme="@style/Theme.Android1213PhotoPicker">
+
         </activity>
 
         <provider
@@ -37,19 +44,7 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
-        </provider>
-
-        <!--suppress AndroidDomInspection -->
-        <service android:name="com.google.android.gms.metadata.ModuleDependencies"
-            android:enabled="false"
-            android:exported="false"
-            tools:ignore="MissingClass">
-
-            <intent-filter>
-                <action android:name="com.google.android.gms.metadata.MODULE_DEPENDENCIES" />
-            </intent-filter>
-            <meta-data android:name="photopicker_activity:0:required" android:value="" />
-        </service>
+        </provider> <!-- suppress AndroidDomInspection -->
     </application>
 
 </manifest>

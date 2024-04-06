@@ -17,6 +17,7 @@ mipmap ic_launcher
 mipmap ic_launcher_round
 string app_name
 string image_picker_provider_authority_suffix
+string title_activity_file_picker
 string title_activity_main
 style Theme.Android1213PhotoPicker
 style Theme.NewPhotoPickerAndroid13

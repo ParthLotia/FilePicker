@@ -31,14 +31,20 @@
         android:testOnly="true"
         android:theme="@style/Theme.NewPhotoPickerAndroid13" >
         <activity
-            android:name="com.android.parth.NewPhotoPicker"
+            android:name="com.android.parth.FilePickerActivity"
             android:exported="true"
-            android:theme="@style/Theme.Android1213PhotoPicker" >
+            android:label="@string/title_activity_file_picker"
+            android:theme="@style/Theme.NewPhotoPickerAndroid13" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.android.parth.NewPhotoPicker"
+            android:exported="true"
+            android:theme="@style/Theme.Android1213PhotoPicker" >
         </activity>
 
         <provider
@@ -49,22 +55,7 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
-        </provider>
-
-        <!-- suppress AndroidDomInspection -->
-        <service
-            android:name="com.google.android.gms.metadata.ModuleDependencies"
-            android:enabled="false"
-            android:exported="false" >
-            <intent-filter>
-                <action android:name="com.google.android.gms.metadata.MODULE_DEPENDENCIES" />
-            </intent-filter>
-
-            <meta-data
-                android:name="photopicker_activity:0:required"
-                android:value="" />
-        </service>
-
+        </provider> <!-- suppress AndroidDomInspection -->
         <activity
             android:name="androidx.activity.ComponentActivity"
             android:exported="true" />

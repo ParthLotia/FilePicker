@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.android.parth.app-mergeDebugResources-56:/values-v23/values-v23.xml",
+            "outputFile": "com.android.parth.app-mergeDebugResources-60:/values-v23/values-v23.xml",
             "map": [
                 {
                     "source": "C:\\Users\\hp\\.gradle\\caches\\transforms-3\\40faf3a10753aa0a51bc5c074320dbf2\\transformed\\cardview-1.0.0\\res\\values-v23\\values-v23.xml",

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.android.parth.app-mergeDebugResources-56:/values-ldltr-v21/values-ldltr-v21.xml",
+            "outputFile": "com.android.parth.app-mergeDebugResources-60:/values-ldltr-v21/values-ldltr-v21.xml",
             "map": [
                 {
                     "source": "C:\\Users\\hp\\.gradle\\caches\\transforms-3\\a0941049f817a6626366ff0ae0d52201\\transformed\\appcompat-1.6.1\\res\\values-ldltr-v21\\values-ldltr-v21.xml",

@@ -69,6 +69,9 @@ Replace your Tag with current version 1.0.9
             }
         }
         
+    Here img_pick is an Imageview to display the file you have selected .
+        
+    
     For Jetpack Compose    
          
          Button(onClick = {
@@ -95,8 +98,14 @@ Replace your Tag with current version 1.0.9
                         }
                     }
                 )
+                
+                 selectedSingleImageUri.value.let {
+                        if (it != null) {
+                            AsyncImage(model = it, contentDescription = "")
+                        }
+                    }
         
-    Here img_pick is an Imageview to display the file you have selected .
+    Here AsyncImage is an ImageView to display the file you have selected .
 ```
 
 

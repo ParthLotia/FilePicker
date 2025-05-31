@@ -95,7 +95,7 @@ class FilePickerActivity : ComponentActivity() {
                                 selectedSingleImageUriThumbnail.value = null
                             } else {
                                 selectedSingleImageUri.value = null
-                                Log.e("uri", "123123" + uri)
+                                Log.e("uri", "PLAndroid" + uri)
                                 selectedSingleImageUriThumbnail.value = uri
 
                             }

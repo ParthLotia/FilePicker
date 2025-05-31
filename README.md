@@ -8,10 +8,10 @@ I have added other pickers as well(pdf,doc,video,pictures).
 
 I have tested with multiple scenarios , here is the scenario list
 
-1. Android 8 to 13 versions
+1. Android 8 to 16 versions
 2. Also Add the Single Photo and Multiple Photo Selection
 3. Single Photo Selection Working on All Android Versions
-4. Multiple Photo Selection will work from Android 11 to Android 13.
+4. Multiple Photo Selection will work from Android 11 to Android 16.
 5. Multiple Photo Selection below Android 11 we have to use clipdata the old way.
 
 Here how to use library in your project follow below steps .
@@ -22,7 +22,7 @@ Here how to use library in your project follow below steps .
          implementation 'com.github.ParthLotia:FilePicker:Tag'
     }
 ```   
-Replace your Tag with current version 1.0.8
+Replace your Tag with current version 1.0.9
 
 2. In your project level gradle add below line
 ```
@@ -68,6 +68,33 @@ Replace your Tag with current version 1.0.8
                 Log.d("PhotoPicker", "No media selected")
             }
         }
+        
+    For Jetpack Compose    
+         
+         Button(onClick = {
+                            singleFilePickerLauncher.launch(arrayOf("*/*"))
+                        }) {
+                            Text(text = "Choose File")
+                        }
+         
+         val singleFilePickerLauncher = rememberLauncherForActivityResult(
+                    contract = ActivityResultContracts.OpenDocument(),
+                    onResult = { uri ->
+
+                        if (uri != null) {
+                            file = FileUriUtils.getRealPath(this, uri)?.let { File(it) }
+                            if (FileUriUtils.checkExtensionFile(file)) {
+                                selectedSingleImageUri.value = uri
+                                selectedSingleImageUriThumbnail.value = null
+                            } else {
+                                selectedSingleImageUri.value = null
+                                Log.e("uri", "PLAndroid" + uri)
+                                selectedSingleImageUriThumbnail.value = uri
+
+                            }
+                        }
+                    }
+                )
         
     Here img_pick is an Imageview to display the file you have selected .
 ```

@@ -1,0 +1,6 @@
+*.html linguist-documentation
+docs/** linguist-documentation
+example/** linguist-vendored
+sample/** linguist-vendored
+*.kt linguist-language=Kotlin
+*.java linguist-language=Java

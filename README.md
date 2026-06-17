@@ -16,6 +16,8 @@ I have tested with multiple scenarios , here is the scenario list
 
 Here how to use library in your project follow below steps .
 
+Currently Tag version is 1.0.9
+
 1. In your gradle(app) add below line
 ```
     dependencies{
